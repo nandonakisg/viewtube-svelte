@@ -24,7 +24,8 @@ const rawVideos = [
     rawViews: 342000,
     daysAgo: 5,
     thumbnail: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=640&h=360&fit=crop",
-    durationInSeconds: 2445
+    durationInSeconds: 2445,
+    date: "2024-01-25"
   },
   {
     id: 2,
@@ -33,7 +34,8 @@ const rawVideos = [
     rawViews: 156000,
     daysAgo: 8,
     thumbnail: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=640&h=360&fit=crop",
-    durationInSeconds: 3600
+    durationInSeconds: 3600,
+    date: "2024-01-22"
   },
   {
     id: 3,
@@ -42,7 +44,8 @@ const rawVideos = [
     rawViews: 89000,
     daysAgo: 12,
     thumbnail: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=640&h=360&fit=crop",
-    durationInSeconds: 1800
+    durationInSeconds: 1800,
+    date: "2024-01-18"
   },
   {
     id: 4,
@@ -51,7 +54,8 @@ const rawVideos = [
     rawViews: 67000,
     daysAgo: 15,
     thumbnail: "https://images.unsplash.com/photo-1562813733-b31f71025d54?w=640&h=360&fit=crop",
-    durationInSeconds: 2100
+    durationInSeconds: 2100,
+    date: "2024-01-15"
   },
   {
     id: 5,
@@ -60,7 +64,8 @@ const rawVideos = [
     rawViews: 128000,
     daysAgo: 18,
     thumbnail: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=640&h=360&fit=crop",
-    durationInSeconds: 2700
+    durationInSeconds: 2700,
+    date: "2024-01-12"
   },
   {
     id: 6,
@@ -69,7 +74,8 @@ const rawVideos = [
     rawViews: 95000,
     daysAgo: 22,
     thumbnail: "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=640&h=360&fit=crop",
-    durationInSeconds: 1500
+    durationInSeconds: 1500,
+    date: "2024-01-08"
   },
   {
     id: 7,
@@ -78,7 +84,8 @@ const rawVideos = [
     rawViews: 112000,
     daysAgo: 25,
     thumbnail: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=640&h=360&fit=crop",
-    durationInSeconds: 2800
+    durationInSeconds: 2800,
+    date: "2024-01-05"
   },
   {
     id: 8,
@@ -87,7 +94,8 @@ const rawVideos = [
     rawViews: 143000,
     daysAgo: 28,
     thumbnail: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=640&h=360&fit=crop",
-    durationInSeconds: 3200
+    durationInSeconds: 3200,
+    date: "2024-01-02"
   },
 
   // TechInsights (7 videos)
@@ -98,7 +106,8 @@ const rawVideos = [
     rawViews: 234000,
     daysAgo: 3,
     thumbnail: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=640&h=360&fit=crop",
-    durationInSeconds: 1200
+    durationInSeconds: 1200,
+    date: "2024-01-27"
   },
   {
     id: 10,
@@ -107,7 +116,8 @@ const rawVideos = [
     rawViews: 187000,
     daysAgo: 7,
     thumbnail: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?w=640&h=360&fit=crop",
-    durationInSeconds: 1800
+    durationInSeconds: 1800,
+    date: "2024-01-23"
   },
   {
     id: 11,
@@ -116,7 +126,8 @@ const rawVideos = [
     rawViews: 156000,
     daysAgo: 10,
     thumbnail: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=640&h=360&fit=crop",
-    durationInSeconds: 2400
+    durationInSeconds: 2400,
+    date: "2024-01-20"
   },
   {
     id: 12,
@@ -125,7 +136,8 @@ const rawVideos = [
     rawViews: 98000,
     daysAgo: 14,
     thumbnail: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=640&h=360&fit=crop",
-    durationInSeconds: 2100
+    durationInSeconds: 2100,
+    date: "2024-01-16"
   },
   {
     id: 13,
@@ -134,7 +146,8 @@ const rawVideos = [
     rawViews: 145000,
     daysAgo: 17,
     thumbnail: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=640&h=360&fit=crop",
-    durationInSeconds: 3000
+    durationInSeconds: 3000,
+    date: "2024-01-13"
   },
   {
     id: 14,
@@ -143,7 +156,8 @@ const rawVideos = [
     rawViews: 167000,
     daysAgo: 21,
     thumbnail: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=640&h=360&fit=crop",
-    durationInSeconds: 2700
+    durationInSeconds: 2700,
+    date: "2024-01-09"
   },
   {
     id: 15,
@@ -152,7 +166,8 @@ const rawVideos = [
     rawViews: 198000,
     daysAgo: 24,
     thumbnail: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=640&h=360&fit=crop",
-    durationInSeconds: 2900
+    durationInSeconds: 2900,
+    date: "2024-01-06"
   },
 
   // CodeCrafters (6 videos)
@@ -163,7 +178,8 @@ const rawVideos = [
     rawViews: 178000,
     daysAgo: 4,
     thumbnail: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=640&h=360&fit=crop",
-    durationInSeconds: 1800
+    durationInSeconds: 1800,
+    date: "2024-01-26"
   },
   {
     id: 17,
@@ -172,7 +188,8 @@ const rawVideos = [
     rawViews: 134000,
     daysAgo: 9,
     thumbnail: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=640&h=360&fit=crop",
-    durationInSeconds: 2400
+    durationInSeconds: 2400,
+    date: "2024-01-21"
   },
   {
     id: 18,
@@ -181,7 +198,8 @@ const rawVideos = [
     rawViews: 156000,
     daysAgo: 13,
     thumbnail: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?w=640&h=360&fit=crop",
-    durationInSeconds: 2100
+    durationInSeconds: 2100,
+    date: "2024-01-17"
   },
   {
     id: 19,
@@ -190,7 +208,8 @@ const rawVideos = [
     rawViews: 89000,
     daysAgo: 16,
     thumbnail: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=640&h=360&fit=crop",
-    durationInSeconds: 2700
+    durationInSeconds: 2700,
+    date: "2024-01-14"
   },
   {
     id: 20,
@@ -199,7 +218,8 @@ const rawVideos = [
     rawViews: 112000,
     daysAgo: 20,
     thumbnail: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=640&h=360&fit=crop",
-    durationInSeconds: 1900
+    durationInSeconds: 1900,
+    date: "2024-01-10"
   },
   {
     id: 21,
@@ -208,7 +228,8 @@ const rawVideos = [
     rawViews: 145000,
     daysAgo: 23,
     thumbnail: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=640&h=360&fit=crop",
-    durationInSeconds: 2500
+    durationInSeconds: 2500,
+    date: "2024-01-07"
   }
 ];
 
