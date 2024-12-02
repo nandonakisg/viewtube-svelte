@@ -25,23 +25,23 @@
 
 <div class="space-y-4">
   <div class="flex justify-between items-center">
-    <div class="inline-flex bg-[#272727] rounded-lg p-1">
+    <div class="inline-flex bg-yt-gray-light dark:bg-yt-gray-dark rounded-lg p-1">
       <button
-        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {sortBy === 'original' ? 'bg-[#3f3f3f] text-white' : 'text-gray-400 hover:text-white'}"
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {sortBy === 'original' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
         on:click={() => sortBy = 'original'}
       >
         <Hash size={18} />
         <span>Original</span>
       </button>
       <button
-        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {sortBy === 'age' ? 'bg-[#3f3f3f] text-white' : 'text-gray-400 hover:text-white'}"
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {sortBy === 'age' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
         on:click={() => sortBy = 'age'}
       >
         <Clock size={18} />
         <span>Age</span>
       </button>
       <button
-        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {sortBy === 'views' ? 'bg-[#3f3f3f] text-white' : 'text-gray-400 hover:text-white'}"
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {sortBy === 'views' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
         on:click={() => sortBy = 'views'}
       >
         <TrendingUp size={18} />
@@ -49,16 +49,16 @@
       </button>
     </div>
     {#if showToggle}
-      <div class="inline-flex bg-[#272727] rounded-lg p-1">
+      <div class="inline-flex bg-yt-gray-light dark:bg-yt-gray-dark rounded-lg p-1">
         <button
-          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {view === 'grid' ? 'bg-[#3f3f3f] text-white' : 'text-gray-400 hover:text-white'}"
+          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {view === 'grid' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
           on:click={() => view = 'grid'}
         >
           <LayoutGrid size={18} />
           <span>Grid</span>
         </button>
         <button
-          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {view === 'list' ? 'bg-[#3f3f3f] text-white' : 'text-gray-400 hover:text-white'}"
+          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {view === 'list' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
           on:click={() => view = 'list'}
         >
           <List size={18} />
