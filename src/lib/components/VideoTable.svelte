@@ -1,8 +1,8 @@
 <script>
   export let videos = [];
-  export let groupByChannel = false;
+  import { videoSettings } from '$lib/stores/videoSettings';
   
-  $: groupedVideos = groupByChannel
+  $: groupedVideos = $videoSettings.groupByChannel
     ? videos.reduce((acc, video) => {
         const channel = acc.find(g => g.channelName === video.channelName);
         if (channel) {
@@ -19,7 +19,7 @@
     : null;
 </script>
 
-{#if groupByChannel && groupedVideos}
+{#if $videoSettings.groupByChannel && groupedVideos}
   <div class="space-y-8">
     {#each groupedVideos as group}
       <div class="space-y-4">
@@ -31,21 +31,19 @@
           <table class="w-full text-sm">
             <thead class="bg-yt-gray-light dark:bg-yt-gray-dark">
               <tr>
-                <th class="text-left px-1.5 py-1 font-medium text-sm">Title</th>
-                <th class="text-left px-1.5 py-1 font-medium text-sm">Views</th>
-                <th class="text-left px-1.5 py-1 font-medium text-sm">Duration</th>
-                <th class="text-left px-1.5 py-1 font-medium text-sm">Age</th>
-                <th class="text-left px-1.5 py-1 font-medium text-sm">Date</th>
+                <th class="text-left px-1.5 py-0.5 font-medium">Title</th>
+                <th class="text-left px-1.5 py-0.5 font-medium">Views</th>
+                <th class="text-left px-1.5 py-0.5 font-medium">Duration</th>
+                <th class="text-left px-1.5 py-0.5 font-medium">Age</th>
+                <th class="text-left px-1.5 py-0.5 font-medium">Date</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-yt-gray-light dark:divide-yt-gray-dark">
               {#each group.videos as video}
                 <tr class="hover:bg-yt-gray-light/50 dark:hover:bg-yt-gray-dark/50">
                   <td class="px-1.5 py-0.5">
-                    <div class="flex items-center gap-2">
-                      <div class="relative w-12 aspect-video rounded overflow-hidden bg-yt-gray-light dark:bg-yt-gray-dark flex-shrink-0">
-                        <img src={video.thumbnail} alt="" class="w-full h-full object-cover" />
-                      </div>
+                    <div class="flex items-center gap-1">
+                      <img src={video.thumbnail} alt="" class="w-8 h-5 object-cover rounded" />
                       <span class="line-clamp-1 text-sm">{video.title}</span>
                     </div>
                   </td>
@@ -66,30 +64,26 @@
   <table class="w-full text-sm">
     <thead class="bg-yt-gray-light dark:bg-yt-gray-dark">
       <tr>
-        <th class="text-left px-1.5 py-1 font-medium text-sm">Title</th>
-        <th class="text-left px-1.5 py-1 font-medium text-sm">Channel</th>
-        <th class="text-left px-1.5 py-1 font-medium text-sm">Views</th>
-        <th class="text-left px-1.5 py-1 font-medium text-sm">Duration</th>
-        <th class="text-left px-1.5 py-1 font-medium text-sm">Age</th>
-        <th class="text-left px-1.5 py-1 font-medium text-sm">Date</th>
+        <th class="text-left px-1.5 py-0.5 font-medium">Title</th>
+        <th class="text-left px-1.5 py-0.5 font-medium">Channel</th>
+        <th class="text-left px-1.5 py-0.5 font-medium">Views</th>
+        <th class="text-left px-1.5 py-0.5 font-medium">Duration</th>
+        <th class="text-left px-1.5 py-0.5 font-medium">Age</th>
+        <th class="text-left px-1.5 py-0.5 font-medium">Date</th>
       </tr>
     </thead>
     <tbody class="divide-y divide-yt-gray-light dark:divide-yt-gray-dark">
       {#each videos as video}
         <tr class="hover:bg-yt-gray-light/50 dark:hover:bg-yt-gray-dark/50">
           <td class="px-1.5 py-0.5">
-            <div class="flex items-center gap-2">
-              <div class="relative w-12 aspect-video rounded overflow-hidden bg-yt-gray-light dark:bg-yt-gray-dark flex-shrink-0">
-                <img src={video.thumbnail} alt="" class="w-full h-full object-cover" />
-              </div>
+            <div class="flex items-center gap-1">
+              <img src={video.thumbnail} alt="" class="w-8 h-5 object-cover rounded" />
               <span class="line-clamp-1 text-sm">{video.title}</span>
             </div>
           </td>
           <td class="px-1.5 py-0.5">
-            <div class="flex items-center gap-2">
-              <div class="w-4 h-4 rounded-full overflow-hidden bg-yt-gray-light dark:bg-yt-gray-dark flex-shrink-0">
-                <img src={video.channelAvatar} alt="" class="w-full h-full object-cover" />
-              </div>
+            <div class="flex items-center gap-1">
+              <img src={video.channelAvatar} alt="" class="w-4 h-4 rounded-full object-cover" />
               <span class="whitespace-nowrap text-sm">{video.channelName}</span>
             </div>
           </td>
