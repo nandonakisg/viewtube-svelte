@@ -71,13 +71,13 @@
   {#if view === 'grid'}
     <div class="grid grid-cols-[repeat(auto-fill,minmax(335px,1fr))] gap-x-[7px] gap-y-6">
       {#each sortedVideos as video (video.id)}
-        <VideoCard {...video} {view} />
+        <VideoCard {...video} />
       {/each}
     </div>
   {:else}
     <div class="flex flex-col items-start gap-6">
       {#each sortedVideos as video (video.id)}
-        <VideoCard {...video} {view} />
+        <VideoCard {...video} />
       {/each}
     </div>
   {/if}

@@ -7,7 +7,6 @@
   export let channelAvatar = '';
   export let duration = '0:00';
   export let description = '';
-  export let variant = 'grid'; // 'grid' or 'list'
 </script>
 
 <div class="group flex flex-col gap-2 w-[335px]">
