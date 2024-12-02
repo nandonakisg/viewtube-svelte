@@ -1,10 +1,9 @@
 <script>
   import VideoGrid from '$lib/components/VideoGrid.svelte';
   import { videos } from '$lib/data/mockData.js';
-  import { videoSettings } from '$lib/stores/videoSettings';
+  import { setContext } from 'svelte';
   
-  // Set initial view to list for search page
-  videoSettings.setView('list');
+  setContext('pageId', 'search');
 </script>
 
 <svelte:head>

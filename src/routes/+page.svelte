@@ -1,7 +1,9 @@
 <script>
   import VideoGrid from '$lib/components/VideoGrid.svelte';
   import { videos } from '$lib/data/mockData.js';
-  import { videoSettings } from '$lib/stores/videoSettings';
+  import { setContext } from 'svelte';
+  
+  setContext('pageId', 'home');
   
   // Remove the ml-[var(--sidebar-width)] since it's handled by the layout
 </script>

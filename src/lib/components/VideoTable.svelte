@@ -1,8 +1,8 @@
 <script>
   export let videos = [];
-  import { videoSettings } from '$lib/stores/videoSettings';
+  export let groupByChannel = false;
   
-  $: groupedVideos = $videoSettings.groupByChannel
+  $: groupedVideos = groupByChannel
     ? videos.reduce((acc, video) => {
         const channel = acc.find(g => g.channelName === video.channelName);
         if (channel) {
@@ -19,7 +19,7 @@
     : null;
 </script>
 
-{#if $videoSettings.groupByChannel && groupedVideos}
+{#if groupByChannel && groupedVideos}
   <div class="space-y-8">
     {#each groupedVideos as group}
       <div class="space-y-4">

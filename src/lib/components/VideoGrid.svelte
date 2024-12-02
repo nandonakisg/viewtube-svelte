@@ -3,12 +3,26 @@
   import VideoCard from './VideoCard.svelte';
   import VideoTable from './VideoTable.svelte';
   import { videoSettings } from '$lib/stores/videoSettings';
+  import { getContext, onMount } from 'svelte';
   
   export let videos = [];
   export let showToggle = true;
+  
+  const pageId = getContext('pageId');
+  let settings = {
+    view: 'grid',
+    sortBy: 'original',
+    groupByChannel: false
+  };
+  
+  onMount(() => {
+    return videoSettings.subscribe(pageId, value => {
+      settings = value;
+    });
+  });
 
   $: sortedVideos = [...videos].sort((a, b) => {
-    switch ($videoSettings.sortBy) {
+    switch (settings.sortBy) {
       case 'age':
         return a.daysAgo - b.daysAgo;
       case 'views':
@@ -22,7 +36,7 @@
     }
   });
   
-  $: groupedVideos = $videoSettings.groupByChannel
+  $: groupedVideos = settings.groupByChannel
     ? sortedVideos.reduce((acc, video) => {
         const channel = acc.find(g => g.channelName === video.channelName);
         if (channel) {
@@ -43,43 +57,43 @@
   <div class="flex justify-between items-center gap-4 flex-wrap">
     <div class="inline-flex bg-yt-gray-light dark:bg-yt-gray-dark rounded-lg p-1">
       <button
-        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {$videoSettings.groupByChannel ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
-        on:click={() => videoSettings.toggleGroupByChannel()}
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {settings.groupByChannel ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
+        on:click={() => videoSettings.toggleGroupByChannel(pageId)}
       >
         <Users size={18} />
         <span>Group by Channel</span>
       </button>
       <button
-        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {$videoSettings.sortBy === 'original' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
-        on:click={() => videoSettings.setSortBy('original')}
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {settings.sortBy === 'original' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
+        on:click={() => videoSettings.setSortBy(pageId, 'original')}
       >
         <Hash size={18} />
         <span>Original</span>
       </button>
       <button
-        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {$videoSettings.sortBy === 'age' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
-        on:click={() => videoSettings.setSortBy('age')}
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {settings.sortBy === 'age' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
+        on:click={() => videoSettings.setSortBy(pageId, 'age')}
       >
         <Clock size={18} />
         <span>Age</span>
       </button>
       <button
-        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {$videoSettings.sortBy === 'views' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
-        on:click={() => videoSettings.setSortBy('views')}
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {settings.sortBy === 'views' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
+        on:click={() => videoSettings.setSortBy(pageId, 'views')}
       >
         <TrendingUp size={18} />
         <span>Views</span>
       </button>
       <button
-        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {$videoSettings.sortBy === 'duration-asc' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
-        on:click={() => videoSettings.setSortBy('duration-asc')}
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {settings.sortBy === 'duration-asc' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
+        on:click={() => videoSettings.setSortBy(pageId, 'duration-asc')}
       >
         <Timer size={18} />
         <span>Duration ↑</span>
       </button>
       <button
-        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {$videoSettings.sortBy === 'duration-desc' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
-        on:click={() => videoSettings.setSortBy('duration-desc')}
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {settings.sortBy === 'duration-desc' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
+        on:click={() => videoSettings.setSortBy(pageId, 'duration-desc')}
       >
         <Timer size={18} />
         <span>Duration ↓</span>
@@ -88,22 +102,22 @@
     {#if showToggle}
       <div class="inline-flex bg-yt-gray-light dark:bg-yt-gray-dark rounded-lg p-1">
         <button
-          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {$videoSettings.view === 'grid' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
-          on:click={() => videoSettings.setView('grid')}
+          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {settings.view === 'grid' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
+          on:click={() => videoSettings.setView(pageId, 'grid')}
         >
           <LayoutGrid size={18} />
           <span>Grid</span>
         </button>
         <button
-          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {$videoSettings.view === 'list' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
-          on:click={() => videoSettings.setView('list')}
+          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {settings.view === 'list' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
+          on:click={() => videoSettings.setView(pageId, 'list')}
         >
           <List size={18} />
           <span>List</span>
         </button>
         <button
-          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {$videoSettings.view === 'table' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
-          on:click={() => videoSettings.setView('table')}
+          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {settings.view === 'table' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
+          on:click={() => videoSettings.setView(pageId, 'table')}
         >
           <Table2 size={18} />
           <span>Table</span>
@@ -112,8 +126,8 @@
     {/if}
   </div>
 
-  {#if $videoSettings.view === 'grid'}
-    {#if $videoSettings.groupByChannel && groupedVideos}
+  {#if settings.view === 'grid'}
+    {#if settings.groupByChannel && groupedVideos}
       <div class="space-y-8">
         {#each groupedVideos as group}
           <div class="space-y-4">
@@ -136,10 +150,10 @@
         {/each}
       </div>
     {/if}
-  {:else if $videoSettings.view === 'table'}
-    <VideoTable videos={sortedVideos} />
+  {:else if settings.view === 'table'}
+    <VideoTable videos={sortedVideos} groupByChannel={settings.groupByChannel} />
   {:else}
-    {#if $videoSettings.groupByChannel && groupedVideos}
+    {#if settings.groupByChannel && groupedVideos}
       <div class="space-y-8">
         {#each groupedVideos as group}
           <div class="space-y-4">
