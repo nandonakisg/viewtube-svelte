@@ -12,7 +12,7 @@
 <div class="group flex flex-col gap-2 w-[335px]">
   <div class="relative w-[335px] h-[185px] rounded-xl overflow-hidden bg-yt-gray-light dark:bg-yt-gray-dark">
     <img src={thumbnail} alt={title} class="w-full h-full object-cover" />
-    <div class="absolute bottom-2 right-2 bg-black/80 px-2 py-1 text-xs rounded-md">
+    <div class="absolute bottom-2 right-2 bg-black/80 text-white px-2 py-1 text-xs rounded-md">
       {duration}
     </div>
   </div>

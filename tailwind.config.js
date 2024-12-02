@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'yt-red': '#ff0000',
+        'yt-red': '#cc0000',
         'yt-bg': {
           light: '#ffffff',
           dark: '#0f0f0f'

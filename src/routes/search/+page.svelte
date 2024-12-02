@@ -1,6 +1,6 @@
 <script>
   import VideoGrid from '$lib/components/VideoGrid.svelte';
-  import { mockSearchResults } from '$lib/data/mockSearchResults.js';
+  import { videos } from '$lib/data/mockData.js';
   
   let view = 'list';
   let sortBy = 'original';
@@ -12,4 +12,4 @@
 
 <h1 class="text-2xl font-bold mb-6">Search Results</h1>
 
-<VideoGrid videos={mockSearchResults} bind:view bind:sortBy />
+<VideoGrid {videos} bind:view bind:sortBy />

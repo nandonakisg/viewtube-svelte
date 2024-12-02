@@ -1,13 +1,7 @@
 <script>
   import VideoGrid from '$lib/components/VideoGrid.svelte';
-  import { mockVideos } from '$lib/data/mockVideos.js';
+  import { videos } from '$lib/data/mockData.js';
   import { writable } from 'svelte/store';
-  
-  // Create a grid of videos with unique IDs
-  const videos = Array.from({ length: 12 }, (_, index) => ({
-    ...mockVideos[index % mockVideos.length],
-    id: index + 1
-  }));
   
   let view = 'grid';
   let sortBy = 'original';

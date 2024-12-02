@@ -1,6 +1,7 @@
 <script>
-  import { LayoutGrid, List, Hash, Clock, TrendingUp } from 'lucide-svelte';
+  import { LayoutGrid, List, Table2, Hash, Clock, TrendingUp, Timer } from 'lucide-svelte';
   import VideoCard from './VideoCard.svelte';
+  import VideoTable from './VideoTable.svelte';
   
   export let videos = [];
   export let view = 'grid';
@@ -14,9 +15,13 @@
   $: sortedVideos = [...videos].sort((a, b) => {
     switch (sortBy) {
       case 'age':
-        return a.daysAgo - b.daysAgo; // Changed to ascending
+        return a.daysAgo - b.daysAgo;
       case 'views':
         return b.rawViews - a.rawViews;
+      case 'duration-asc':
+        return a.durationInSeconds - b.durationInSeconds;
+      case 'duration-desc':
+        return b.durationInSeconds - a.durationInSeconds;
       default:
         return 0; // original order
     }
@@ -47,6 +52,20 @@
         <TrendingUp size={18} />
         <span>Views</span>
       </button>
+      <button
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {sortBy === 'duration-asc' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
+        on:click={() => sortBy = 'duration-asc'}
+      >
+        <Timer size={18} />
+        <span>Duration ↑</span>
+      </button>
+      <button
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {sortBy === 'duration-desc' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
+        on:click={() => sortBy = 'duration-desc'}
+      >
+        <Timer size={18} />
+        <span>Duration ↓</span>
+      </button>
     </div>
     {#if showToggle}
       <div class="inline-flex bg-yt-gray-light dark:bg-yt-gray-dark rounded-lg p-1">
@@ -64,6 +83,13 @@
           <List size={18} />
           <span>List</span>
         </button>
+        <button
+          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {view === 'table' ? 'bg-black/10 dark:bg-white/10' : 'text-yt-secondary-light dark:text-yt-secondary-dark hover:text-yt-text-light dark:hover:text-yt-text-dark'}"
+          on:click={() => view = 'table'}
+        >
+          <Table2 size={18} />
+          <span>Table</span>
+        </button>
       </div>
     {/if}
   </div>
@@ -74,6 +100,8 @@
         <VideoCard {...video} />
       {/each}
     </div>
+  {:else if view === 'table'}
+    <VideoTable videos={sortedVideos} />
   {:else}
     <div class="flex flex-col items-start gap-6">
       {#each sortedVideos as video (video.id)}

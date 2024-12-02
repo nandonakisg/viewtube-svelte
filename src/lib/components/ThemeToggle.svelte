@@ -4,7 +4,8 @@
 </script>
 
 <button
-  class="p-2 hover:bg-white/10 dark:hover:bg-black/10 rounded-full transition-colors"
+  class="p-2 hover:bg-black/10 dark:hover:bg-white/10 rounded-full transition-colors"
+  title={$theme === 'dark' ? 'Light mode' : 'Dark mode'}
   on:click={() => theme.toggle()}
 >
   {#if $theme === 'dark'}
