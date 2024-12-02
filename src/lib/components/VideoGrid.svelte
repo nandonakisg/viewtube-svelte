@@ -1,43 +1,82 @@
 <script>
-  import { LayoutGrid, List } from 'lucide-svelte';
+  import { LayoutGrid, List, Hash, Clock, TrendingUp } from 'lucide-svelte';
   import VideoCard from './VideoCard.svelte';
   
   export let videos = [];
   export let view = 'grid';
   export let showToggle = true;
+  export let sortBy = 'original';
   
   function toggleView() {
     view = view === 'grid' ? 'list' : 'grid';
   }
+
+  $: sortedVideos = [...videos].sort((a, b) => {
+    switch (sortBy) {
+      case 'age':
+        return a.daysAgo - b.daysAgo; // Changed to ascending
+      case 'views':
+        return b.rawViews - a.rawViews;
+      default:
+        return 0; // original order
+    }
+  });
 </script>
 
 <div class="space-y-4">
-  {#if showToggle}
-    <div class="flex justify-end">
+  <div class="flex justify-between items-center">
+    <div class="inline-flex bg-[#272727] rounded-lg p-1">
       <button
-        on:click={toggleView}
-        class="p-2 hover:bg-white/10 rounded-lg flex items-center gap-2 text-sm"
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {sortBy === 'original' ? 'bg-[#3f3f3f] text-white' : 'text-gray-400 hover:text-white'}"
+        on:click={() => sortBy = 'original'}
       >
-        {#if view === 'grid'}
-          <List size={20} />
-          <span>Show list view</span>
-        {:else}
-          <LayoutGrid size={20} />
-          <span>Show grid view</span>
-        {/if}
+        <Hash size={18} />
+        <span>Original</span>
+      </button>
+      <button
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {sortBy === 'age' ? 'bg-[#3f3f3f] text-white' : 'text-gray-400 hover:text-white'}"
+        on:click={() => sortBy = 'age'}
+      >
+        <Clock size={18} />
+        <span>Age</span>
+      </button>
+      <button
+        class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {sortBy === 'views' ? 'bg-[#3f3f3f] text-white' : 'text-gray-400 hover:text-white'}"
+        on:click={() => sortBy = 'views'}
+      >
+        <TrendingUp size={18} />
+        <span>Views</span>
       </button>
     </div>
-  {/if}
+    {#if showToggle}
+      <div class="inline-flex bg-[#272727] rounded-lg p-1">
+        <button
+          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {view === 'grid' ? 'bg-[#3f3f3f] text-white' : 'text-gray-400 hover:text-white'}"
+          on:click={() => view = 'grid'}
+        >
+          <LayoutGrid size={18} />
+          <span>Grid</span>
+        </button>
+        <button
+          class="px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition-colors {view === 'list' ? 'bg-[#3f3f3f] text-white' : 'text-gray-400 hover:text-white'}"
+          on:click={() => view = 'list'}
+        >
+          <List size={18} />
+          <span>List</span>
+        </button>
+      </div>
+    {/if}
+  </div>
 
   {#if view === 'grid'}
     <div class="grid grid-cols-[repeat(auto-fill,minmax(335px,1fr))] gap-x-[7px] gap-y-6">
-      {#each videos as video (video.id)}
+      {#each sortedVideos as video (video.id)}
         <VideoCard {...video} {view} />
       {/each}
     </div>
   {:else}
     <div class="flex flex-col items-start gap-6">
-      {#each videos as video (video.id)}
+      {#each sortedVideos as video (video.id)}
         <VideoCard {...video} {view} />
       {/each}
     </div>

@@ -5,8 +5,9 @@ const rawResults = [
     id: 'sr1',
     title: "Advanced SvelteKit Tutorial - Build Modern Web Apps",
     channelName: "WebDev Masters",
-    views: 342000,
-    timestamp: "1 month ago",
+    rawViews: 342000,
+    rawTimestamp: Date.now() - 30 * 24 * 60 * 60 * 1000, // 1 month ago
+    daysAgo: 30,
     thumbnail: "https://picsum.photos/seed/sr1/640/360",
     channelAvatar: "https://picsum.photos/seed/sra1/100/100",
     durationInSeconds: 2445,
@@ -16,8 +17,9 @@ const rawResults = [
     id: 'sr2',
     title: "Web Development Trends 2024 - What's New?",
     channelName: "TechInsights",
-    views: 128000,
-    timestamp: "5 days ago",
+    rawViews: 128000,
+    rawTimestamp: Date.now() - 5 * 24 * 60 * 60 * 1000, // 5 days ago
+    daysAgo: 5,
     thumbnail: "https://picsum.photos/seed/sr2/640/360",
     channelAvatar: "https://picsum.photos/seed/sra2/100/100",
     durationInSeconds: 1256,
@@ -27,8 +29,9 @@ const rawResults = [
     id: 'sr3',
     title: "Build a Full-Stack App with SvelteKit and Prisma",
     channelName: "CodeCrafters",
-    views: 89000,
-    timestamp: "2 weeks ago",
+    rawViews: 89000,
+    rawTimestamp: Date.now() - 14 * 24 * 60 * 60 * 1000, // 2 weeks ago
+    daysAgo: 14,
     thumbnail: "https://picsum.photos/seed/sr3/640/360",
     channelAvatar: "https://picsum.photos/seed/sra3/100/100",
     durationInSeconds: 3600,
@@ -38,6 +41,7 @@ const rawResults = [
 
 export const mockSearchResults = rawResults.map(result => ({
   ...result,
-  views: formatViews(result.views),
-  duration: formatDuration(result.durationInSeconds)
+  views: formatViews(result.rawViews),
+  duration: formatDuration(result.durationInSeconds),
+  timestamp: `${result.daysAgo} days ago`
 }));

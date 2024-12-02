@@ -25,31 +25,12 @@ export function formatDuration(seconds) {
 }
 
 /**
- * Format timestamp to relative time
- * @param {string} timestamp
- * @returns {string}
+ * Calculate days ago from timestamp
+ * @param {number} timestamp
+ * @returns {number}
  */
-export function formatTimeAgo(timestamp) {
-  if (!timestamp) return '';
-  
-  const periods = {
-    day: 24 * 60 * 60 * 1000,
-    hour: 60 * 60 * 1000,
-    minute: 60 * 1000
-  };
-
-  const now = new Date();
-  const date = new Date(now - Math.random() * 7 * periods.day); // Simulate random recent dates
-  const diff = now - date;
-
-  if (diff < periods.hour) {
-    const minutes = Math.floor(diff / periods.minute);
-    return `${minutes} minutes ago`;
-  } else if (diff < periods.day) {
-    const hours = Math.floor(diff / periods.hour);
-    return `${hours} hours ago`;
-  } else {
-    const days = Math.floor(diff / periods.day);
-    return `${days} days ago`;
-  }
+export function getDaysAgo(timestamp) {
+  const now = Date.now();
+  const diff = now - timestamp;
+  return Math.floor(diff / (24 * 60 * 60 * 1000));
 }
