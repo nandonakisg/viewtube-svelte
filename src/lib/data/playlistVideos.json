@@ -1,0 +1,33 @@
+{
+  "pl1": {
+    "id": "pl1",
+    "title": "Web Development Essentials",
+    "description": "Essential tutorials and guides for modern web development",
+    "videos": [
+      {
+        "id": "1",
+        "thumbnail": "https://picsum.photos/seed/1/360/200",
+        "title": "Building a YouTube Clone with Svelte",
+        "channel": {
+          "id": "c1",
+          "name": "Code Master",
+          "avatar": "https://picsum.photos/seed/c1/32"
+        },
+        "views": 1200000,
+        "timestamp": "2024-01-15T10:00:00Z"
+      },
+      {
+        "id": "2",
+        "thumbnail": "https://picsum.photos/seed/2/360/200",
+        "title": "Learn TypeScript in 2024 - Complete Guide",
+        "channel": {
+          "id": "c2",
+          "name": "Tech Academy",
+          "avatar": "https://picsum.photos/seed/c2/32"
+        },
+        "views": 850000,
+        "timestamp": "2024-02-01T15:30:00Z"
+      }
+    ]
+  }
+}

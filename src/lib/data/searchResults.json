@@ -1,0 +1,44 @@
+{
+  "query": "svelte tutorial",
+  "results": [
+    {
+      "id": "s1",
+      "thumbnail": "https://picsum.photos/seed/s1/360/200",
+      "title": "Svelte Tutorial for Beginners - Full Course",
+      "channel": {
+        "id": "c1",
+        "name": "Code Master",
+        "avatar": "https://picsum.photos/seed/c1/32"
+      },
+      "views": 1500000,
+      "timestamp": "2024-01-10T08:00:00Z",
+      "description": "Learn Svelte from scratch in this comprehensive tutorial. We'll cover components, reactivity, stores, and more!"
+    },
+    {
+      "id": "s2",
+      "thumbnail": "https://picsum.photos/seed/s2/360/200",
+      "title": "Build a Real-World App with Svelte and TypeScript",
+      "channel": {
+        "id": "c2",
+        "name": "Tech Academy",
+        "avatar": "https://picsum.photos/seed/c2/32"
+      },
+      "views": 750000,
+      "timestamp": "2024-01-25T15:30:00Z",
+      "description": "In this project-based tutorial, we'll build a complete application using Svelte, TypeScript, and modern web development practices."
+    },
+    {
+      "id": "s3",
+      "thumbnail": "https://picsum.photos/seed/s3/360/200",
+      "title": "Svelte vs React - Which Should You Choose?",
+      "channel": {
+        "id": "c3",
+        "name": "WebDev Pro",
+        "avatar": "https://picsum.photos/seed/c3/32"
+      },
+      "views": 980000,
+      "timestamp": "2024-02-05T12:45:00Z",
+      "description": "A detailed comparison of Svelte and React. We'll look at performance, developer experience, and real-world use cases."
+    }
+  ]
+}

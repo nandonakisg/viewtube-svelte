@@ -1,0 +1,76 @@
+{
+  "videos": [
+    {
+      "id": "1",
+      "thumbnail": "https://picsum.photos/seed/1/360/200",
+      "title": "Building a YouTube Clone with Svelte",
+      "channel": {
+        "id": "c1",
+        "name": "Code Master",
+        "avatar": "https://picsum.photos/seed/c1/32"
+      },
+      "views": 1200000,
+      "timestamp": "2024-01-15T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "thumbnail": "https://picsum.photos/seed/2/360/200",
+      "title": "Learn TypeScript in 2024 - Complete Guide",
+      "channel": {
+        "id": "c2",
+        "name": "Tech Academy",
+        "avatar": "https://picsum.photos/seed/c2/32"
+      },
+      "views": 850000,
+      "timestamp": "2024-02-01T15:30:00Z"
+    },
+    {
+      "id": "3",
+      "thumbnail": "https://picsum.photos/seed/3/360/200",
+      "title": "10 Must-Know Web Development Trends for 2024",
+      "channel": {
+        "id": "c3",
+        "name": "WebDev Pro",
+        "avatar": "https://picsum.photos/seed/c3/32"
+      },
+      "views": 500000,
+      "timestamp": "2024-02-10T08:45:00Z"
+    },
+    {
+      "id": "4",
+      "thumbnail": "https://picsum.photos/seed/4/360/200",
+      "title": "Advanced Svelte Animation Techniques",
+      "channel": {
+        "id": "c1",
+        "name": "Code Master",
+        "avatar": "https://picsum.photos/seed/c1/32"
+      },
+      "views": 320000,
+      "timestamp": "2024-02-12T14:20:00Z"
+    },
+    {
+      "id": "5",
+      "thumbnail": "https://picsum.photos/seed/5/360/200",
+      "title": "Building Scalable Web Applications",
+      "channel": {
+        "id": "c2",
+        "name": "Tech Academy",
+        "avatar": "https://picsum.photos/seed/c2/32"
+      },
+      "views": 180000,
+      "timestamp": "2024-02-13T09:15:00Z"
+    },
+    {
+      "id": "6",
+      "thumbnail": "https://picsum.photos/seed/6/360/200",
+      "title": "Modern CSS Tips and Tricks",
+      "channel": {
+        "id": "c3",
+        "name": "WebDev Pro",
+        "avatar": "https://picsum.photos/seed/c3/32"
+      },
+      "views": 420000,
+      "timestamp": "2024-02-14T11:30:00Z"
+    }
+  ]
+}

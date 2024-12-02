@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sidebar-width: 240px;
+}
+
+body {
+  margin: 0;
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
