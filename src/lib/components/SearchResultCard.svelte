@@ -1,39 +1,47 @@
-<script lang="ts">
-  import type { SearchResult } from '../types/search';
-  import { formatViews, formatTimestamp } from '../utils/format';
+<script>
+  import { formatTimeAgo } from '$lib/utils/format.js';
   
-  export let result: SearchResult;
+  export let title = '';
+  export let channelName = '';
+  export let views = '';
+  export let timestamp = '';
+  export let thumbnail = '';
+  export let channelAvatar = '';
+  export let duration = '0:00';
+  export let description = '';
+  
+  $: formattedTimestamp = formatTimeAgo(timestamp);
 </script>
 
-<div class="flex gap-4 mb-4">
-  <a href="/watch?v={result.id}" class="flex-shrink-0">
-    <img
-      src={result.thumbnail}
-      alt={result.title}
-      class="w-[360px] aspect-video rounded-xl object-cover"
-    />
-  </a>
-  <div class="flex-1">
-    <a href="/watch?v={result.id}" class="block">
-      <h3 class="text-xl font-semibold mb-1 hover:text-blue-400">
-        {result.title}
-      </h3>
-      <div class="text-sm text-gray-400 mb-2">
-        {formatViews(result.views)} views • {formatTimestamp(result.timestamp)}
+<div class="flex gap-4 group">
+  <div class="relative w-[360px] flex-shrink-0">
+    <div class="relative aspect-video rounded-xl overflow-hidden bg-yt-gray">
+      {#if thumbnail}
+        <img src={thumbnail} alt={title} class="w-full h-full object-cover" />
+      {/if}
+      <div class="absolute bottom-2 right-2 bg-black/80 px-2 py-1 text-xs rounded-md">
+        {duration}
       </div>
-    </a>
-    <div class="flex items-center gap-2 mb-2">
-      <a href="/channel/{result.channel.id}" class="flex items-center gap-2 hover:text-white">
-        <img
-          src={result.channel.avatar}
-          alt={result.channel.name}
-          class="w-6 h-6 rounded-full"
-        />
-        <span class="text-sm text-gray-400">{result.channel.name}</span>
-      </a>
     </div>
-    <p class="text-sm text-gray-400 line-clamp-2">
-      {result.description}
-    </p>
+  </div>
+  
+  <div class="flex flex-col flex-1 gap-2">
+    <h3 class="text-xl font-medium line-clamp-2 group-hover:text-yt-white">{title}</h3>
+    <div class="flex items-center gap-1 text-sm text-gray-400">
+      <span>{views} views</span>
+      <span>•</span>
+      <span>{formattedTimestamp}</span>
+    </div>
+    
+    <div class="flex items-center gap-2 mt-2">
+      <div class="w-6 h-6 rounded-full overflow-hidden bg-yt-gray flex-shrink-0">
+        {#if channelAvatar}
+          <img src={channelAvatar} alt={channelName} class="w-full h-full object-cover" />
+        {/if}
+      </div>
+      <span class="text-sm text-gray-400 hover:text-yt-white">{channelName}</span>
+    </div>
+    
+    <p class="text-sm text-gray-400 line-clamp-2 mt-2">{description}</p>
   </div>
 </div>

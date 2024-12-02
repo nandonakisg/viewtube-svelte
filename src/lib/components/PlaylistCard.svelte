@@ -1,58 +1,36 @@
-<script lang="ts">
-  import type { Playlist } from '../types/playlist';
-  import { formatTimestamp } from '../utils/format';
-  import { Lock, Globe } from 'lucide-svelte';
-  import { createEventDispatcher } from 'svelte';
-  
-  interface PlaylistCardProps {
-    playlist: Playlist;
-  }
-  
-  const props = $props<PlaylistCardProps>();
-  
-  const dispatch = createEventDispatcher<{
-    select: { id: string };
-  }>();
-  
-  function handleClick(e: MouseEvent) {
-    console.log('Clicked playlist:', props.playlist.id);
-    e.preventDefault();
-    dispatch('select', { id: props.playlist.id });
-  }
+<script>
+  export let title = '';
+  export let thumbnails = [];
+  export let videoCount = 0;
+  export let visibility = 'Public';
+  export let updatedAt = '';
 </script>
 
-<div class="flex flex-col gap-2">
-  <a
-    href="/playlists?id={props.playlist.id}"
-    on:click={handleClick}
-    class="relative aspect-video rounded-xl overflow-hidden group"
-  >
-    <img
-      src={props.playlist.thumbnail}
-      alt={props.playlist.title}
-      class="object-cover w-full h-full"
-    />
-    <div class="absolute bottom-2 right-2 bg-black/80 px-2 py-1 rounded text-sm">
-      {props.playlist.videoCount} videos
-    </div>
-  </a>
-  <div class="flex flex-col">
-    <div class="flex items-center gap-2">
-      <a
-        href="/playlists?id={props.playlist.id}"
-        on:click={handleClick}
-        class="font-medium line-clamp-2 flex-1"
-      >
-        {props.playlist.title}
-      </a>
-      {#if props.playlist.visibility === 'private'}
-        <Lock size={16} class="text-gray-400" />
-      {:else if props.playlist.visibility === 'public'}
-        <Globe size={16} class="text-gray-400" />
+<div class="flex flex-col gap-2 group">
+  <div class="relative aspect-video rounded-xl overflow-hidden bg-yt-gray">
+    <div class="grid grid-cols-2 h-full">
+      {#if thumbnails[0]}
+        <img src={thumbnails[0]} alt="" class="w-full h-full object-cover row-span-2" />
       {/if}
+      <div class="grid grid-rows-2 h-full">
+        {#each thumbnails.slice(1, 3) as thumbnail}
+          <div class="bg-yt-gray overflow-hidden">
+            <img src={thumbnail} alt="" class="w-full h-full object-cover opacity-70" />
+          </div>
+        {/each}
+      </div>
     </div>
-    <div class="text-sm text-gray-400">
-      Last updated {formatTimestamp(props.playlist.lastUpdated)}
+    <div class="absolute bottom-2 right-2 bg-black/80 px-2 py-1 text-xs rounded-md">
+      {videoCount} videos
+    </div>
+  </div>
+  
+  <div class="flex flex-col">
+    <h3 class="font-medium line-clamp-2 group-hover:text-yt-white">{title}</h3>
+    <div class="flex items-center gap-1 text-sm text-gray-400 mt-1">
+      <span>{visibility}</span>
+      <span>•</span>
+      <span>{updatedAt}</span>
     </div>
   </div>
 </div>

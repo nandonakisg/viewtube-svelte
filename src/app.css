@@ -7,7 +7,5 @@
 }
 
 body {
-  margin: 0;
-  background-color: #0f0f0f;
-  color: #ffffff;
+  @apply bg-[#0f0f0f] text-white;
 }
