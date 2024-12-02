@@ -33,9 +33,6 @@
     </div>
     <div class="flex-1 flex items-center justify-between">
       <Topbar />
-      <div class="flex items-center gap-2">
-        <ThemeToggle />
-      </div>
     </div>
   </header>
   <div class="flex flex-1 overflow-hidden">
