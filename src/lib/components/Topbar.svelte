@@ -1,9 +1,10 @@
 <script>
-  import { Search, Bell, Video, Mic, User } from 'lucide-svelte';
+  import { Search, Bell, Video, User } from 'lucide-svelte';
 </script>
 
-<div class="flex-1 flex items-center justify-between px-4">
-  <div class="flex items-center gap-2 flex-1 justify-center max-w-2xl">
+<div class="flex-1 flex items-center justify-between">
+  <div class="w-[240px]"></div>
+  <div class="flex-1 flex justify-center max-w-[640px]">
     <div class="flex items-center flex-1">
       <div class="flex items-center flex-1 bg-[#121212] border border-[#303030] rounded-l-full px-4 py-2">
         <input
@@ -16,12 +17,9 @@
         <Search size={20} />
       </button>
     </div>
-    <button class="p-2 hover:bg-white/10 rounded-full">
-      <Mic size={20} />
-    </button>
   </div>
 
-  <div class="flex items-center gap-3">
+  <div class="flex items-center gap-3 w-[240px] justify-end">
     <button class="p-2 hover:bg-white/10 rounded-full">
       <Video size={20} />
     </button>

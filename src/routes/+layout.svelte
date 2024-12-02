@@ -12,7 +12,7 @@
         <Menu size={24} />
       </button>
       <a href="/" class="flex items-center gap-1">
-        <span class="text-xl font-bold">YouTube</span>
+        <span class="text-xl font-bold">ViewTube</span>
       </a>
     </div>
     <Topbar />
