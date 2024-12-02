@@ -9,6 +9,4 @@
   <title>Search Results - YouTube Clone</title>
 </svelte:head>
 
-<div class="ml-[var(--sidebar-width)] p-6">
-  <VideoGrid videos={mockSearchResults} bind:view columns={1} />
-</div>
+<VideoGrid videos={mockSearchResults} bind:view columns={1} />

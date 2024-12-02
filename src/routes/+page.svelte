@@ -18,6 +18,4 @@
   <title>YouTube Clone</title>
 </svelte:head>
 
-<div class="p-6">
-  <VideoGrid {videos} bind:view />
-</div>
+<VideoGrid {videos} bind:view />

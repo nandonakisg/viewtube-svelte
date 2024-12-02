@@ -2,7 +2,7 @@
   import { Home, Search, Library } from 'lucide-svelte';
 </script>
 
-<aside class="w-[var(--sidebar-width)] h-full bg-[#0f0f0f] flex flex-col p-3 fixed">
+<aside class="w-[var(--sidebar-width)] bg-[#0f0f0f] flex flex-col p-3 pt-2">
   <div class="flex flex-col gap-2">
     <a href="/" class="flex items-center gap-6 px-3 py-3 hover:bg-white/10 rounded-lg">
       <Home size={24} />

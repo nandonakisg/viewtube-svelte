@@ -1,17 +1,8 @@
 <script>
-  import { Search, Menu, Bell, Video, Mic, User } from 'lucide-svelte';
+  import { Search, Bell, Video, Mic, User } from 'lucide-svelte';
 </script>
 
-<header class="bg-[#0f0f0f] sticky top-0 z-50 flex items-center justify-between px-6 py-2">
-  <div class="flex items-center gap-4">
-    <button class="p-2 hover:bg-white/10 rounded-full">
-      <Menu size={24} />
-    </button>
-    <a href="/" class="flex items-center gap-1">
-      <span class="text-xl font-bold">YouTube</span>
-    </a>
-  </div>
-
+<div class="flex-1 flex items-center justify-between px-4">
   <div class="flex items-center gap-2 flex-1 justify-center max-w-2xl">
     <div class="flex items-center flex-1">
       <div class="flex items-center flex-1 bg-[#121212] border border-[#303030] rounded-l-full px-4 py-2">
@@ -41,4 +32,4 @@
       <User size={20} />
     </button>
   </div>
-</header>
+</div>
