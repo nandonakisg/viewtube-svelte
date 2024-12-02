@@ -14,7 +14,7 @@
 </script>
 
 <div class="h-screen flex flex-col overflow-hidden">
-  <header class="bg-yt-bg-light dark:bg-yt-bg-dark flex items-center px-4 h-14">
+  <header class="bg-white dark:bg-yt-gray-dark flex items-center px-4 h-14 border-b border-yt-gray-light dark:border-yt-gray-dark">
     <div class="flex items-center gap-4">
       <button class="p-2 hover:bg-black/10 dark:hover:bg-white/10 rounded-full">
         <Menu size={24} />
@@ -31,7 +31,9 @@
     </div>
   </header>
   <div class="flex flex-1 overflow-hidden">
-    <Sidebar />
+    <div class="bg-white dark:bg-yt-gray-dark w-[var(--sidebar-width)]">
+      <Sidebar />
+    </div>
     <main class="flex-1 overflow-y-auto p-6">
       <slot />
     </main>

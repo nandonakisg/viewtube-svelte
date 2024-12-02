@@ -1,18 +1,32 @@
 <script>
   import { Home, Search, Library } from 'lucide-svelte';
+  
+  let currentPath = '';
+  $: if (typeof window !== 'undefined') {
+    currentPath = window.location.pathname;
+  }
 </script>
 
-<aside class="w-[var(--sidebar-width)] bg-yt-bg-light dark:bg-yt-bg-dark flex flex-col p-3 pt-2">
+<aside class="flex flex-col p-3 pt-2 bg-white dark:bg-yt-gray-dark">
   <div class="flex flex-col gap-2">
-    <a href="/" class="flex items-center gap-6 px-3 py-3 hover:bg-black/10 dark:hover:bg-white/10 rounded-lg">
+    <a
+      href="/"
+      class="flex items-center gap-6 px-3 py-3 rounded-lg transition-colors {currentPath === '/' ? 'bg-yt-gray-light dark:bg-white/10' : 'hover:bg-yt-gray-light dark:hover:bg-white/10'}"
+    >
       <Home size={24} />
       <span>Home</span>
     </a>
-    <a href="/search" class="flex items-center gap-6 px-3 py-3 hover:bg-black/10 dark:hover:bg-white/10 rounded-lg">
+    <a
+      href="/search"
+      class="flex items-center gap-6 px-3 py-3 rounded-lg transition-colors {currentPath === '/search' ? 'bg-yt-gray-light dark:bg-white/10' : 'hover:bg-yt-gray-light dark:hover:bg-white/10'}"
+    >
       <Search size={24} />
       <span>Search</span>
     </a>
-    <a href="/playlists" class="flex items-center gap-6 px-3 py-3 hover:bg-black/10 dark:hover:bg-white/10 rounded-lg">
+    <a
+      href="/playlists"
+      class="flex items-center gap-6 px-3 py-3 rounded-lg transition-colors {currentPath === '/playlists' ? 'bg-yt-gray-light dark:bg-white/10' : 'hover:bg-yt-gray-light dark:hover:bg-white/10'}"
+    >
       <Library size={24} />
       <span>Playlists</span>
     </a>

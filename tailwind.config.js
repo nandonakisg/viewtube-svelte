@@ -5,22 +5,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        'yt-red': '#cc0000',
+        'yt-red': '#4f46e5',
         'yt-bg': {
           light: '#ffffff',
-          dark: '#0f0f0f'
+          dark: '#111827'
         },
         'yt-text': {
           light: '#0f0f0f',
           dark: '#ffffff'
         },
         'yt-gray': {
-          light: '#f2f2f2',
-          dark: '#272727'
+          light: '#f3f4f6',
+          dark: '#1f2937'
         },
         'yt-secondary': {
-          light: '#606060',
-          dark: '#aaaaaa'
+          light: '#4b5563',
+          dark: '#9ca3af'
         }
       },
     },
