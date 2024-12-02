@@ -1,6 +1,8 @@
 <script>
-  import SearchResultCard from '$lib/components/SearchResultCard.svelte';
+  import VideoGrid from '$lib/components/VideoGrid.svelte';
   import { mockSearchResults } from '$lib/data/mockSearchResults.js';
+  
+  let view = 'list';
 </script>
 
 <svelte:head>
@@ -8,11 +10,5 @@
 </svelte:head>
 
 <div class="ml-[var(--sidebar-width)] p-6">
-  <div class="max-w-[1096px] mx-auto">
-    <div class="flex flex-col gap-6">
-      {#each mockSearchResults as result (result.id)}
-        <SearchResultCard {...result} />
-      {/each}
-    </div>
-  </div>
+  <VideoGrid videos={mockSearchResults} bind:view columns={1} />
 </div>
