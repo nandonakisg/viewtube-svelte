@@ -1,4 +1,5 @@
 <script>
+  import { sidebarVisible } from '$lib/stores/sidebar';
   import { Home, Search, Library } from 'lucide-svelte';
   
   let currentPath = '';
@@ -7,7 +8,7 @@
   }
 </script>
 
-<aside class="flex flex-col p-3 pt-2 bg-white dark:bg-yt-gray-dark">
+<aside class="flex flex-col p-3 pt-2 bg-white dark:bg-yt-gray-dark overflow-hidden whitespace-nowrap">
   <div class="flex flex-col gap-2">
     <a
       href="/"
